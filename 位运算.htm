@@ -1,0 +1,212 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>位运算详解 - By 徐嘉俊</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.dark.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>位运算知识点总结</h1>
+
+</hgroup><article>
+
+<p class="moveIn"><span>让你不再对位运算懵逼<span></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>基本操作</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>左移操作 a&lt;&lt;b</h2>
+
+</hgroup><article>
+
+<pre><code>B = 2
+
+A         = 1100
+A &lt;&lt; B    = 110000
+
+A         = 11111111111111111111111110000001
+A &lt;&lt; B    = 11111111111111111111111000000100
+</code></pre><p>将A的二进制表示的每一位向左移B位，左边超出的位截掉，右边不足的位补0</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>右移操作</h2>
+
+</hgroup><article>
+
+<p>右移操作分为算数右移和逻辑右移</p>
+<blockquote>
+<p>算数右移: 将A的二进制表示的每一位向右移B位，右边超出的位截掉，左边不足的位补符号位的数。</p>
+<p>逻辑右移：将A的二进制表示的每一位向右移B位，右边超出的位截掉，左边不足的位补0。</p>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>右移操作 A &gt;&gt; B 与 A &gt;&gt;&gt; B</h2>
+
+</hgroup><article>
+
+<pre><code class="{:&amp;.moveIn}">B = 2
+
+A       = 11111111111111111111111110000001
+
+A &gt;&gt;  B = 11111111111111111111111110000001
+A &gt;&gt;&gt; B = 11111111111111111111111000000100
+</code></pre>
+<p>C语言：只有逻辑右移 A &gt;&gt; B</p>
+<p>JAVA 和 Python中：算术右移 A &gt;&gt; B , 逻辑右移 A &gt;&gt;&gt; B</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>按位与操作 a &amp; b</h2>
+
+</hgroup><article>
+
+<pre><code>A     = 001010
+B     = 101100
+A &amp; B = 001000
+</code></pre><p>将A和B的二进制表示的每一位进行与操作，只有两个对应的二进制位都为1时，结果位才为1，否则为0.</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>按位或操作 a | b</h2>
+
+</hgroup><article>
+
+<pre><code>A     = 001010
+B     = 101100
+A | B = 101110
+</code></pre><p>将A和B的二进制表示的每一位进行或操作，只要两个对应的二进制位有一个为1，结果位就为1，否则为0.</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>按位非操作 ~ a</h2>
+
+</hgroup><article>
+
+<pre><code>A = 00000000000000000000000000001010
+~A = 11111111111111111111111111110101
+</code></pre><p>将A的二进制表示每一位进行取反操作，如果对应的二进制位为0，结果位为1，否则为0.</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>按位非操作 ~ a</h2>
+
+</hgroup><article>
+
+<pre><code>A = 00000000000000000000000000001010
+~A = 11111111111111111111111111110101
+</code></pre><p>将A的二进制表示每一位进行取反操作，如果对应的二进制位为0，结果位为1，否则为0.</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>按位异或操作 a ^ b</h2>
+
+</hgroup><article>
+
+<pre><code>A     = 001010
+B     = 101100
+A ^ B = 100110
+</code></pre><p>将A和B的二进制表示的每一位进行异或操作，如果对应的二进制位不同，结果位为1，否则为0.</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>应用实战练习</h2>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'slide3',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  config: ["TeX-AMS-MML_HTMLorMML.js"],
+  tex2jax: {inlineMath: [['\\(','\\)']]}});
+  //['$','$'], 避免货币价格冲突
+</script>
+<script type="text/javascript" src="./js/mathjax/MathJax.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
